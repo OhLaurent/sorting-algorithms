@@ -50,7 +50,7 @@ function main() {
 
     renderCols(cols, randomValues)
 
-    selectionSort(cols)
+    bubbleSort(cols)
 }
 
 document.addEventListener("load", main())
