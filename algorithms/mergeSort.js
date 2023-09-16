@@ -49,7 +49,6 @@ function mergeSort(cols, time) {
         }
 
         renderCols(cols, sorted);
-        console.log(sorted);
 
         await sleep(time);
 
