@@ -1,4 +1,4 @@
-function bubbleSort(cols) {
+function bubbleSort(cols, time) {
     const sorted = cols.map(col => col.value)
     let end = sorted.length - 1;
 
@@ -18,7 +18,7 @@ function bubbleSort(cols) {
         renderCols(cols, sorted)
 
         end--
-        setTimeout(sortIteration, 100)
+        setTimeout(sortIteration, time)
     }
 
     sortIteration()
