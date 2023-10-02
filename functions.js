@@ -41,6 +41,13 @@ function generateRandomValues(numberOfValues) {
 
 function main() {
     const numberOfValues = 50
+    const time = 50
+
+    const algorithms = {
+        "selection-sort": selectionSort,
+        "bubble-sort": bubbleSort,
+        "merge-sort": mergeSort
+    }
 
     const view = document.getElementById("view")
 
@@ -50,7 +57,19 @@ function main() {
 
     renderCols(cols, randomValues)
 
-    mergeSort(cols, 200)
+    document.getElementById('randomize').addEventListener('click', (e) => {
+        const randomValues = generateRandomValues(numberOfValues)
+        renderCols(cols, randomValues)
+        document.querySelectorAll('.col').forEach(element => {
+            element.style.backgroundColor = 'green'
+        });
+    })
+
+    document.getElementById('sort').addEventListener('click', (e) => {
+        const algorithm = document.getElementById('algorithm').value
+        algorithms[algorithm](cols, time)
+    })
+
 }
 
 document.addEventListener("load", main())

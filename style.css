@@ -16,3 +16,32 @@
     background-color: green;
     margin: 0 2.5px;
 }
+
+header {
+    background-color: #3e3e3e;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+}
+
+header button {
+    width: 100px;
+    height: 30px;
+    border: none;
+}
+
+header select {
+    width: 450px;
+    text-align: center;
+}
+
+#randomize {
+    background-color: blue;
+    color: #ffffff;
+}
+
+#sort {
+    background-color: green;
+    color: #ffffff;
+}

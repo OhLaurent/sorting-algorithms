@@ -10,11 +10,21 @@
 </head>
 
 <body>
+    <header>
+        <button type="button" id="randomize">Randomize</button>
+        <select name="algorithm" id="algorithm">
+            <option value="selection-sort" selected>Selection Sort</option>
+            <option value="bubble-sort">Bubble Sort</option>
+            <option value="merge-sort">Merge Sort</option>
+        </select>
+        <button type="button" id="sort">Sort</button>
+    </header>
     <div id="view"></div>
 
     <script src="algorithms/selectionSort.js"></script>
     <script src="algorithms/bubbleSort.js"></script>
     <script src="algorithms/mergeSort.js"></script>
+    <script src="algorithms/quickSort.js"></script>
     <script src="functions.js"></script>
 </body>
 
