@@ -16,9 +16,11 @@ function createCols(numberOfCols, view) {
 }
 
 function renderCols(cols, values) {
+    const gradient = generateGradientColors(cols.length)
     for (let i = 0; i < cols.length; i++) {
         cols[i].value = values[i]
         cols[i].element.style.height = values[i] * 5 + "px"
+        cols[i].element.style.backgroundColor = gradient[values[i] - 1]
     }
 }
 
@@ -37,6 +39,15 @@ function generateRandomValues(numberOfValues) {
 
     return values
 
+}
+
+function generateGradientColors(numberOfValues) {
+    const colors = []
+    for (let i = 0; i < numberOfValues; i++) {
+        colors.push(`hsl(${i * 360 / numberOfValues}, 100%, 50%)`)
+    }
+
+    return colors
 }
 
 function main() {

@@ -13,8 +13,6 @@ function bubbleSort(cols, time) {
             }
         }
 
-        cols[end].element.style.backgroundColor = "red"
-
         renderCols(cols, sorted)
 
         end--

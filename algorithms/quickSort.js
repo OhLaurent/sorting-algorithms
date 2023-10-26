@@ -33,7 +33,6 @@ function quickSort(cols, time) {
             const auxIndex = sorted.indexOf(value)
             sorted[startIndex + index] = value
             sorted[auxIndex] = aux
-            cols[startIndex + index].element.style.backgroundColor = "red"
             renderCols(cols, sorted)
         })
 

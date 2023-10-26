@@ -6,10 +6,6 @@ function mergeSort(cols, time) {
     const sorted = cols.map(col => col.value);
 
     async function sortIteration(arr) {
-        cols.forEach((col, index) => {
-            col.element.style.backgroundColor = "green"
-        })
-
         if (arr.length <= 1) return arr;
 
         const leftArr = [];
@@ -45,7 +41,6 @@ function mergeSort(cols, time) {
 
         for (let i = startIndex, j = 0; i <= endIndex; i++, j++) {
             sorted[i] = result[j];
-            cols[i].element.style.backgroundColor = "red"
         }
 
         renderCols(cols, sorted);

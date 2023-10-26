@@ -20,8 +20,6 @@ function selectionSort(cols, time) {
         sorted[step] = sorted[smallestIndex]
         sorted[smallestIndex] = aux
 
-        cols[step].element.style.backgroundColor = "red"
-
         renderCols(cols, sorted)
 
         step++
