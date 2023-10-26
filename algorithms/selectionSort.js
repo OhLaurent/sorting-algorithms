@@ -20,10 +20,10 @@ function selectionSort(cols, time, colors) {
         sorted[step] = sorted[smallestIndex]
         sorted[smallestIndex] = aux
 
-        renderCols(cols, sorted)
+        renderCols(cols, sorted, colors)
 
         step++
-        setTimeout(sortIteration, time, colors)
+        setTimeout(sortIteration, time)
     }
 
     sortIteration()

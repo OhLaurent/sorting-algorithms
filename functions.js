@@ -49,6 +49,11 @@ function generateGradientColors(numberOfValues) {
     return colors
 }
 
+function rendomize(numberOfValues, cols, gradient) {
+    const randomValues = generateRandomValues(numberOfValues)
+    renderCols(cols, randomValues, gradient)
+}
+
 function main() {
     const numberOfValues = 50
     const time = 50
@@ -64,15 +69,16 @@ function main() {
 
     const cols = createCols(numberOfValues, view)
 
-    const randomValues = generateRandomValues(numberOfValues)
-
     const gradient = generateGradientColors(numberOfValues)
 
-    renderCols(cols, randomValues, gradient)
+    rendomize(numberOfValues, cols, gradient)
 
     document.getElementById('randomize').addEventListener('click', (e) => {
-        const randomValues = generateRandomValues(numberOfValues)
-        renderCols(cols, randomValues, gradient)
+        rendomize(numberOfValues, cols, gradient)
+    })
+
+    document.getElementById('algorithm').addEventListener('change', (e) => {
+        rendomize(numberOfValues, cols, gradient)
     })
 
     document.getElementById('sort').addEventListener('click', (e) => {

@@ -2,8 +2,6 @@ function bubbleSort(cols, time, colors) {
     const sorted = cols.map(col => col.value)
     let end = sorted.length - 1;
 
-    console.log(sorted, end)
-
     function sortIteration() {
         if (end <= 1) return
         for (let i = 0; i < end; i++) {

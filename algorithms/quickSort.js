@@ -21,8 +21,6 @@ function quickSort(cols, time, colors) {
             rightArr.push(value)
         })
 
-        console.log(arr)
-
         const sortedLeftArr = await sortIteration(leftArr, startIndex, startIndex + leftArr.length - 1)
         const sortedRightArr = await sortIteration(rightArr, startIndex + leftArr.length, endIndex)
 

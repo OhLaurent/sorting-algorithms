@@ -34,6 +34,7 @@ header button {
 header select {
     width: 450px;
     text-align: center;
+    height: 30px;
 }
 
 #randomize {
@@ -44,4 +45,20 @@ header select {
 #sort {
     background-color: #4bb543;
     color: #ffffff;
+}
+
+@media screen and (max-width: 700px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+        row-gap: 10px;
+    }
+
+    header button {
+        width: 100%;
+    }
+
+    header select {
+        width: 100%;
+    }
 }
