@@ -46,7 +46,8 @@ function main() {
     const algorithms = {
         "selection-sort": selectionSort,
         "bubble-sort": bubbleSort,
-        "merge-sort": mergeSort
+        "merge-sort": mergeSort,
+        "quick-sort": quickSort,
     }
 
     const view = document.getElementById("view")

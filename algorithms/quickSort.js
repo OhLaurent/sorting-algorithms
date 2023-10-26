@@ -5,62 +5,42 @@ function sleep(time) {
 function quickSort(cols, time) {
     const sorted = cols.map(col => col.value)
 
-    async function sortIteration(arr) {
+    async function sortIteration(arr, startIndex, endIndex) {
         if (arr.length <= 1) return arr
 
-        cols.forEach((col, index) => {
-            col.element.style.backgroundColor = "green"
+        const pivot = arr[arr.length - 1]
+        arr.pop()
+        const leftArr = []
+        const rightArr = []
+
+        arr.forEach((value, index) => {
+            if (value < pivot) {
+                leftArr.push(value)
+                return
+            }
+            rightArr.push(value)
         })
 
-        const lastIndex = arr.length - 1
+        console.log(arr)
 
-        const pivot = arr[lastIndex]
+        const sortedLeftArr = await sortIteration(leftArr, startIndex, startIndex + leftArr.length - 1)
+        const sortedRightArr = await sortIteration(rightArr, startIndex + leftArr.length, endIndex)
 
-        const smaller = []
-        const bigger = []
+        const result = sortedLeftArr.concat(pivot, sortedRightArr)
 
-        const startIndex = sorted.indexOf(arr[0])
-        const endIndex = startIndex + arr.length - 1
-
-        for (let i = 0; i < lastIndex; i++) {
-            if (arr[i] <= pivot) {
-                smaller.push(arr[i])
-                continue
-            }
-
-            bigger.push(arr[i])
-        }
-
-        const result = []
-
-        if (smaller.length) {
-            const sortedSmaller = await sortIteration(smaller)
-            sortedSmaller.forEach(value => {
-                result.push(value)
-            });
-        }
-
-        result.push(pivot)
-
-        if (bigger.length) {
-            const sortedBigger = await sortIteration(bigger)
-            sortedBigger.forEach(value => {
-                result.push(value)
-            });
-        }
-
-        for (let i = startIndex, j = 0; i <= endIndex; i++, j++) {
-            sorted[i] = result[j];
-        }
-
-        renderCols(cols, sorted)
-        console.log(sorted)
+        result.forEach((value, index) => {
+            const aux = sorted[startIndex + index]
+            const auxIndex = sorted.indexOf(value)
+            sorted[startIndex + index] = value
+            sorted[auxIndex] = aux
+            cols[startIndex + index].element.style.backgroundColor = "red"
+            renderCols(cols, sorted)
+        })
 
         await sleep(time)
-
 
         return result
     }
 
-    sortIteration(sorted)
+    sortIteration(sorted, 0, sorted.length - 1)
 }
