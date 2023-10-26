@@ -9,16 +9,18 @@
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
+    height: 80vh;
+    background-color: #2C2C2E;
 }
 
 .col {
     width: 30px;
-    background-color: green;
     margin: 0 2.5px;
+    border-radius: 0 0 5px 5px;
 }
 
 header {
-    background-color: #3e3e3e;
+    background-color: #1C1C1E;
     color: #ffffff;
     display: flex;
     justify-content: space-between;
@@ -29,21 +31,25 @@ header button {
     width: 100px;
     height: 30px;
     border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 header select {
     width: 450px;
     text-align: center;
     height: 30px;
+    border-radius: 5px;
 }
 
 #randomize {
-    background-color: #1c63cc;
+    background-color: #0040DD;
     color: #ffffff;
 }
 
 #sort {
-    background-color: #4bb543;
+    background-color: #007D1B;
     color: #ffffff;
 }
 
