@@ -1,4 +1,4 @@
-function selectionSort(cols, time) {
+function selectionSort(cols, time, colors) {
     const sorted = cols.map(col => col.value)
     let step = 0;
 
@@ -23,7 +23,7 @@ function selectionSort(cols, time) {
         renderCols(cols, sorted)
 
         step++
-        setTimeout(sortIteration, time)
+        setTimeout(sortIteration, time, colors)
     }
 
     sortIteration()

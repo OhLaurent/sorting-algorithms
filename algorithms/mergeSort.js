@@ -2,7 +2,7 @@ function sleep(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 }
 
-function mergeSort(cols, time) {
+function mergeSort(cols, time, colors) {
     const sorted = cols.map(col => col.value);
 
     async function sortIteration(arr) {
@@ -43,7 +43,7 @@ function mergeSort(cols, time) {
             sorted[i] = result[j];
         }
 
-        renderCols(cols, sorted);
+        renderCols(cols, sorted, colors);
 
         await sleep(time);
 

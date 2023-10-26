@@ -1,10 +1,11 @@
-function bubbleSort(cols, time) {
+function bubbleSort(cols, time, colors) {
     const sorted = cols.map(col => col.value)
     let end = sorted.length - 1;
 
     console.log(sorted, end)
 
     function sortIteration() {
+        if (end <= 1) return
         for (let i = 0; i < end; i++) {
             if (sorted[i] > sorted[i + 1]) {
                 const aux = sorted[i]
@@ -13,7 +14,7 @@ function bubbleSort(cols, time) {
             }
         }
 
-        renderCols(cols, sorted)
+        renderCols(cols, sorted, colors)
 
         end--
         setTimeout(sortIteration, time)

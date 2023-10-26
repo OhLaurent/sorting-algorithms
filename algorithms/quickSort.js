@@ -2,7 +2,7 @@ function sleep(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 }
 
-function quickSort(cols, time) {
+function quickSort(cols, time, colors) {
     const sorted = cols.map(col => col.value)
 
     async function sortIteration(arr, startIndex, endIndex) {
@@ -33,7 +33,7 @@ function quickSort(cols, time) {
             const auxIndex = sorted.indexOf(value)
             sorted[startIndex + index] = value
             sorted[auxIndex] = aux
-            renderCols(cols, sorted)
+            renderCols(cols, sorted, colors)
         })
 
         await sleep(time)

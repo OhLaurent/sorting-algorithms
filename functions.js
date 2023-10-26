@@ -15,12 +15,11 @@ function createCols(numberOfCols, view) {
     return cols
 }
 
-function renderCols(cols, values) {
-    const gradient = generateGradientColors(cols.length)
+function renderCols(cols, values, colors) {
     for (let i = 0; i < cols.length; i++) {
         cols[i].value = values[i]
         cols[i].element.style.height = values[i] * 5 + "px"
-        cols[i].element.style.backgroundColor = gradient[values[i] - 1]
+        cols[i].element.style.backgroundColor = colors[values[i] - 1]
     }
 }
 
@@ -67,19 +66,18 @@ function main() {
 
     const randomValues = generateRandomValues(numberOfValues)
 
-    renderCols(cols, randomValues)
+    const gradient = generateGradientColors(numberOfValues)
+
+    renderCols(cols, randomValues, gradient)
 
     document.getElementById('randomize').addEventListener('click', (e) => {
         const randomValues = generateRandomValues(numberOfValues)
-        renderCols(cols, randomValues)
-        document.querySelectorAll('.col').forEach(element => {
-            element.style.backgroundColor = 'green'
-        });
+        renderCols(cols, randomValues, gradient)
     })
 
     document.getElementById('sort').addEventListener('click', (e) => {
         const algorithm = document.getElementById('algorithm').value
-        algorithms[algorithm](cols, time)
+        algorithms[algorithm](cols, time, gradient)
     })
 
 }
